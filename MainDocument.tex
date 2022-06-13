@@ -1,0 +1,95 @@
+% This is the Main Document
+% ---------------------------------------------------------------------------------------
+% General Settings / Präambel
+\input{settings}
+\input{commands}
+% ---------------------------------------------------------------------------------------
+% Start of the Document
+\begin{document}
+% 
+% ---------------------------------------------------------------------------------------
+% Include Title Page
+\pagestyle{empty}
+
+\include{Sections/_General/titlepage_researchProject_ger}
+
+\newpage
+% ---------------------------------------------------------------------------------------
+% Include Original Task Sheet
+\pagenumbering{Roman}
+%\include{Sections/_General/task_sheet}
+%\newpage
+% ---------------------------------------------------------------------------------------
+% Include Declaration of Independence
+
+\include{Sections/_General/doi_researchProject_ger}
+
+\newpage
+% ---------------------------------------------------------------------------------------
+% Abstract
+\pagestyle{scrheadings}
+
+\thispagestyle{firstPage}
+\include{Sections/Abstract/kurzzusammenfassung}
+% ---------------------------------------------------------------------------------------
+% Table of Contents, Lists of Figures and Tables
+\newpage
+\thispagestyle{firstPage}
+\tableofcontents
+\newpage
+\thispagestyle{firstPage}
+\listoffigures
+\newpage
+\thispagestyle{firstPage}
+%\listoftables
+%\newpage
+\lstlistoflistings
+\newpage
+%\thispagestyle{firstPage}
+%\parskip=0pt
+%\include{Sections/nomenclature}
+\newpage
+\thispagestyle{firstPage}
+\include{Sections/acronyms}
+\parskip=0.5\baselineskip
+\newpage
+% ---------------------------------------------------------------------------------------
+% Content
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{Sections/Chapter_1-Einleitung/Chapter_1}
+\include{Sections/Chapter_2-Mocha_Analog/Chapter_2}
+\include{Sections/Chapter_3-AD_Wandler/Chapter_3}
+\include{Sections/Chapter_4-Diagnose/Chapter_4}
+\include{Sections/Chapter_5-Errorcodes/Chapter_5}
+\include{Sections/Chapter_6-Bewertung_Ausblick/Chapter_6}
+% ---------------------------------------------------------------------------------------
+% Bibliography
+\thispagestyle{firstPage}
+%\bibliographystyle{ieeetr}
+%\bibliography{Literaturverzeichnis}
+\printbibliography
+
+\newpage
+% ---------------------------------------------------------------------------------------
+% Appendix
+\thispagestyle{firstPage}
+\pagenumbering{roman} % small roman page numbers 
+\appendix
+\addcontentsline{toc}{section}{Anhang}
+\input{Sections/Appendix/Werkzeugliste}
+\newpage
+\thispagestyle{firstPage}
+\include{Sections/Appendix/Can-Tranceiver}
+\thispagestyle{firstPage}
+\include{Sections/Appendix/Ablaufdiagramm}
+\thispagestyle{firstPage}
+\include{Sections/Appendix/Interface}
+%\thispagestyle{firstPage}
+%\include{Sections/Appendix/Readme}
+\thispagestyle{firstPage}
+\include{Sections/Appendix/TabellarischeTätigkeiten}
+% ---------------------------------------------------------------------------------------
+% End of the Document
+\end{document}
+% ---------------------------------------------------------------------------------------

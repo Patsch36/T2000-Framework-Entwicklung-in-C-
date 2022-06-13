@@ -1,0 +1,43 @@
+% !TEX root = MainDocument.tex
+\thispagestyle{firstPage}
+
+\section{Einleitung}
+\label{sec:introduction}
+
+\glqq Zeit ist Geld \grqq- schon im Jahr 1748 trifft Benjamin Franklin in seinem Buch „Ratschläge für junge Kaufleute“  (nach \textcite[][]{ZeitIstGeld.2022}) ein Schlüsselprinzip der modernen Wirtschaft.
+Franklin erläutert dort die unabdingbar Verzahnung von Zeit und Geld als Unternehmer. 
+Das hat bis heute noch Gültigkeit:
+Da in der Regel keine leistungsorientierte Vergütung erfolgt, sondern nach Stunden abregerechnet wird, zeigt sich direkt am Mitarbeiter, wie eng Zeit und Geld zusammenhängen.
+
+Effizientes und kostenorientiertes Arbeiten rückt demnach weitaus mehr in den Vordergrund.
+Das hat natürlich auch seine Gründe: Zum einen erhöht der bewusste Umgang mit Zeit den Umsatz und damit die Gewinnspanne eines Unternehmens, zum anderen fördert es aber auch die Wettbewerbsfähigkeit mit anderen Unternehmen sowie die Konkurrenzfähigkeit des eigenen Landes mit dem Ausland.
+
+Es gilt also, mit ausgeklügelten Techniken Zeitaufwand für Planung, Entwicklung, Umsetzung und Produktion zu minimiern. 
+Gewissermaßen liegt es also in der Verantwortung jeder Abteilung, an Optimierungsprozessen zu arbeiten.
+
+Um den Zeitaufwand für die Softwareentwicklung neuer Produkte zu minimieren, sucht deshalb auch die Entwicklung des Unternehmens nach neuen Konzepten und Wegen, ihre Prozesse zu verkürzen.
+Dieses Ziel kann erreicht werden, wenn bei der Software- Architektur das Prinzip der Wiederverwendbarkeit stärker betont wird.
+Dazu müssen Gemeinsamkeiten im Anwendungsbereich der verschiedenen Busmodule identifiziert  und Strukturen der Software verbessert werden.
+
+Eine weitere Methode zur Kostenminimierung ist das Ersetzen von Softwareentwicklern durch Programmierer. Dazu muss die Softwareentwicklung allerdings stark genug abstrahiert und vereinfacht werden, um gleichbleibende Qualität zu gewährleisten.
+Für beide Aspekte gibt es eine abdeckende Lösung:
+
+Um nämlich all das umzusetzen, soll ein umfassendes, firmeninternes Framework\footnote{Rahmenwerk für Struktur und Architektur von zu entwickelnder Software, bestehend aus Standardmodulen- und Bibliotheken mit genau definierten und dokumentierten Schnittstellen (siehe \textcite[][1]{ITGlossar.2021})}
+entwickelt werden, in dem einzelne Funktionalitäten auf jeweils eine Komponente heruntergebrochen werden sollen. 
+Die Benutzerschnittstellen diese Komponenten sollen auf wesentliche Funktionen reduziert werden, um die Nutzung des Frameworks einfach und intuitiv zu gestalten, dabei aber sämtliche für die Module relevanten Funktionen zur Verfügung zustellen und für den späteren Programmierer irrelevante Operationen im Hintergrund durchzuführen.
+
+Folgende Ausarbeitung beschäftigt sich mit dem Aspekt der Wiederverwendbarkeit von Software und gibt einen Ausblick auf deren automatisch Generierung. Im speziellen soll dabei auf den Anwendungsfall, für den die Software vorerst konzipiert wurde, eingegangen werden.
+
+Kern der Arbeit wird demnach das Konzipieren und Entwickeln der Klassen für die analoge Messung der Temperatur mithilfe eines AD- Wandlers, die Auswertung der Daten, Diagnosefunktionen\footnote{Mit Diagnosefunktionen ist die Überprüfung der Funktionalität des Systems durch Überwachung bestimmter Werte auf das Überschreiten von Schwelllwerten sowie das Prüfen von Hardwarekomponenten auf Funktionstüchtigkeit gemeint} 
+im System sowie das Senden von Fehlercodes im Hinblick der Wiederverwendbarkeit sein.
+Dabei soll die Wiederverwendbarkeit der Temperaturmessung in den Fokus gestellt werden. 
+Um dies zu präsentieren, wird gezeigt, wie die Klasse ohne große Änderungen zur Spannungsmessungen genutzt werden kann.
+
+Die aus den Diagnosen folgenden Ergebnisse müssen in Errorcodes übersetzt werden. 
+Diese sollen gemäß eigener Definitionen vereinheitlicht werden, um das Mappen (Umformen) auf protokollspezifische Error Codes zu gewährleisten.
+Im Umfang der Arbeit wird das Mappen auf das IOLink Protokoll gezeigt.
+Es soll aber auch einen Ausblick auf das Mappen in andere Protokollcodes gegeben werden.
+
+Die Software wird anschließend auf ein analog- Busmodul des Produktkatalogs geflasht werden.
+Dieses wird mit zu den Messungen passenden Sensoren ausgerüstet werden und soll sämtliche Diagnosen durchführen.
+Bei erfolgreichem Durchlaufen aller Tests wird die Software auf ebendiesen Modulen laufen und zum Verkauf freigegeben werden.

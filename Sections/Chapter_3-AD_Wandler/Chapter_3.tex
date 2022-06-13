@@ -1,0 +1,44 @@
+% !TEX root = MainDocument.tex
+\thispagestyle{firstPage}
+
+\section{Der Analog- Digital- Wandler}
+\label{sec:ad-wandler}
+
+Im ersten Teil der Arbeit geht es um die digitale Messung analoger Größen des Moduls.
+Das Framework wurde am Beispiel der Temperaturmessung des neuen Moduls entwickelt, demnach soll dieser Anwendungsfall hier genauer beschrieben werden.
+
+Zuerst sei hier gesagt, dass mithilfe eines \ac{adc} nicht nur die Temperatur gemessen werden kann.
+Aufgabe des Bauteils ist es, eine analoge Spannung in einen digitalen Wert zu formen.
+Dazu wird über eine über ein auf externe Reize reagierendes Bauteil abfallende Spannung an die Eingänge des Bauteils geschalten.
+Diese Spannung kann aber auch von einem beliebigen Sensor stammen.
+Abhängig davon, ob dieser Sensor oder externe Bauteil auf Temperatur oder eben andere Reize reagiert, kann der \ac{adc} verschiedene Größen messen.
+
+Grob gesagt misst ein \ac{adc} die anliegenede Messspannung im Verhältnis zu einer anliegenden Referenzsspannung.
+Das Bauteil bildet danach das Verhältnis von anliegender Messspannung zu Referenzsspannung.
+Daraus wird ein einheitenloser Wert gebildet.
+Das Verhältnis diesen Wertes zum maximal messbaren Wert entspricht dem Verhältnis der beiden vorhin genannten Spannungen (siehe \autoref{eq:adc-messung}, dort entspricht \glqq Digitaler Wert\grqq dem digitalisierten, analogen Wert und \glqq Auflösung des Bauteils\grqq dem maximal messbarem Wert).
+
+\begin{equation}
+    \frac{Messpannung}{Referenzspannung} = \frac{Digitaler Wert}{Aufloesung des Bauteils}
+    \label{eq:adc-messung}
+\end{equation}
+
+Im Späteren wird noch gezeigt, wie die aktuelle Temperaturmessung durch austauschen von Submodulen zur Messung einer anderen analogen Größe- nämlich der Betriebsspannung- genutzt werden kann.
+
+\subsection{Hardware}
+\label{subsec:hardware}
+
+\subsubsection{Der externe AD- Wandler: ADS124S08}
+\label{subsubsec:external-adc}
+
+\subsubsection{Der interne AD- Wandler des STM32G4}
+\label{subsubsec:internal-adc}
+
+\subsection{Software}
+\label{subsec:hardware}
+
+\subsubsection{Der externe AD- Wandler}
+\label{subsubsec:external-adc}
+
+\subsubsection{Der interne AD- Wandler}
+\label{subsubsec:internal-adc}

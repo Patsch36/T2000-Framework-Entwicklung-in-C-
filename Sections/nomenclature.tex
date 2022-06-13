@@ -1,0 +1,58 @@
+% !TEX root = MainDocument.tex
+
+% Creating a nomenclature and print nomenclature in document
+
+%\tagged{english} {\renewcommand{\nomname}{List of Symbols}}
+\renewcommand{\nomname}{Symbolverzeichnis}
+
+% Appear in Table of contents
+%\tagged{english} {\addcontentsline{toc}{section}{List of Symbols}}
+\addcontentsline{toc}{section}{Symbolverzeichnis}
+
+
+% ---------------------------------------------------------------------------------------
+% Creating groups of symbols
+%\begin{taggedblock}{english}
+%\newsymbolclass[2]{G}{Greek letters}
+%\newsymbolclass[2]{I}{Indices}
+%\newsymbolclass[1]{P}{Physics Constants}
+%\newsymbolclass[2]{N}{Number Sets}
+%\newsymbolclass[3]{O}{Other Symbols}
+%\end{taggedblock}
+
+
+\newsymbolclass[2]{G}{Griechische Buchstaben}
+\newsymbolclass[2]{I}{Indizes}
+\newsymbolclass[1]{P}{Physikalische Konstanten}
+\newsymbolclass[2]{N}{Zahlenmengen}
+\newsymbolclass[3]{O}{Zusätzliche Symbole}
+
+
+
+% Add units
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}#1}
+}
+
+% Label width
+\nomlabelwidth=10mm 
+
+% ---------------------------------------------------------------------------------------
+%\tagged{english} {\renewcommand{\nompreamble}{Symbols printed in bold depict vectors and matrices.}}
+\renewcommand{\nompreamble}{Fettgedruckte Symbole stellen Vektoren und Matrizen dar.}
+
+% ---------------------------------------------------------------------------------------
+% Units
+\addsymbol{P}[01]{$c$}{Speed of light in a vacuum inertial system \nomunit{$299,792,458\,\mathrm{m/s}$}}
+\addsymbol{P}[04]{$h$}{Plank Constant \nomunit{$6.62607 \times 10^{-34}\, \mathrm{J\,s}$}}
+\addsymbol{P}[02]{$g$}{Gravitationskonstante \nomunit{$6.67384 \times 10^{-11}\, \mathrm{N \, m^2/kg^2}$}}
+\addsymbol{P}[03]{$V$}{Constant Volume}
+
+% number sets
+\addsymbol{N}{$\mathbb{R}$}{Real Numbers}
+\addsymbol{N}{$\mathbb{C}$}{Complex Numbers}
+\addsymbol{N}{$\mathbb{H}$}{Quaternions}
+
+
+
+\printnomenclature
