@@ -1,0 +1,28 @@
+@startuml
+
+!theme plain
+' left to right direction
+skinparam linetype polyline
+skinparam linetype ortho
+'!pragma layout elk
+
+
+usecase (Konfigurieren der \nLeseparameter) as UC1
+usecase (Eingeben der \nMesskonfigurationen) as UC2
+usecase (Konfigurieren der Messung) as UC3
+usecase (Starten der Analog- \nDigital Wandlung) as UC4
+usecase (Auslesen des \ngewandelten Wertes) as UC5
+usecase (Umrechnen des Ergebnisses \nin Messgröße) as UC6
+usecase (Konfigurieren der \nnächsten Messung) as UC7
+
+
+
+
+UC1 -right-> UC2
+UC2 -right-> UC3
+UC3 -right-> UC4
+UC4 -down-> UC5
+UC5 -left--> UC6
+UC6 -left--> UC7
+
+@enduml

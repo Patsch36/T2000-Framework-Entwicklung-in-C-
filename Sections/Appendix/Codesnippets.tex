@@ -1,0 +1,84 @@
+% !TEX root = MainDocument.tex
+\section{Code Beispiele}
+\label{sec:sode-snippets}
+
+\subsection{Konfigurationsstruktur der ADCs}
+\label{subsec:conf-structs-adc}
+
+\begin{lstlisting}[caption={Konfigurationsstruktur der ADCs mit Interface(MEF\_ADCConfig) und der Erweiterung für den externen ADC (MEF\_ADS124S08Config) }, label=lst:adc-conf-structs]
+struct MEF_ADCConfig
+{
+	uint16_t channelID;
+
+	iConvert* converter;
+};
+
+
+struct MEF_ADS124S08Config : MEF_ADCConfig
+{
+	ADS124S08Pin Ain_plus;
+
+	ADS124S08Pin Ain_minus;
+
+	ADS124S08RefSelection ref;
+
+	ADS124S08Datarate datarate = ADS124S08Datarate::DR_400SPS;
+
+	ADS124S08PGAGain gain;
+};
+\end{lstlisting}
+
+\newpage
+\subsection{Umwandlungsalgorithmus eines Bytearrays mit 4 Gliedern in einen Integer- Wert}
+\label{subsec:array-to-int-code}
+\begin{lstlisting}[caption={Konvertierungsalgorithmus}, label=lst:array-to-int-code]
+// Convert 3 bytes of uint8_t array to int32_t, data starts at index 1
+for(uint8_t index = 3; index > 0; index--)
+	{
+		data = data | ((int32_t)(rxData[4 - index])) << index * 8;
+	}
+data = data >> 8;
+\end{lstlisting}
+
+
+\subsection{Konfigurieren eines Multimodes zum Messen mehrerer Kanäle über DMA ohne CPU- Zeit für das Konfigurieren der nächsten Kanäle zu verschwenden}
+\label{subsec:adc-multimode}
+\begin{lstlisting}[caption={Konfigurieren des Multimodes des internen ADC mit verschiedenen Rängen}, label=lst:multimode-adc]
+multimode.Mode = ADC_MODE_INDEPENDENT;
+
+if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
+{
+    Error_Handler();
+}
+
+/** Configure Regular Channel 1
+*/
+sConfig.Channel = ADC_CHANNEL_1;
+sConfig.Rank = ADC_REGULAR_RANK_1;
+sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
+sConfig.SingleDiff = ADC_SINGLE_ENDED;
+sConfig.OffsetNumber = ADC_OFFSET_NONE;
+sConfig.Offset = 0;
+if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+{
+    Error_Handler();
+}
+
+/** Configure Regular Channel 2
+*/
+sConfig.Channel = ADC_CHANNEL_TEMPSENSOR_ADC1;
+sConfig.Rank = ADC_REGULAR_RANK_2;
+if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+{
+    Error_Handler();
+}
+
+/** Configure Regular Channel 3
+*/
+sConfig.Channel = ADC_CHANNEL_VREFINT;
+sConfig.Rank = ADC_REGULAR_RANK_3;
+if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+{
+    Error_Handler();
+}
+\end{lstlisting}
